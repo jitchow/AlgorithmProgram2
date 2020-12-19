@@ -26,12 +26,12 @@ vector<string> getData(string textFile) {
     return data;
 }
 
+
+
 int main () {
     vector<string> data = getData("Set_A.txt");
 
-    for (int i=0; i<data.size(); i++) {
-    	cout << data[i] << endl;
-    }
+
 
     return 0;
 }
