@@ -36,13 +36,19 @@ int main () {
     vector<string> data = getData(filename);
 
     AVL_Tree tree;
-    auto start = high_resolution_clock::now(); 
+
+    //Start timer
+    //auto start = high_resolution_clock::now();
+
     for (int i=0; i<data.size(); i++) {
+        cout << data[i] << endl;
         tree.insert(data[i]);
     }
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start); 
-    cout << duration.count() << " microseconds" << endl;
-    
+    //Stop timer
+    //auto stop = high_resolution_clock::now(); 
+
+    //auto insertDuration = duration_cast<microseconds>(stop - start);
+    //cout << "AVL Tree insertion took " << insertDuration.count() << " microseconds" << endl;
+
     return 0;
 }

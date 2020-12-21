@@ -8,3 +8,5 @@
 .vscode/settings.json
 .vscode/tasks.json
 obj/Debug/main.o
+.vscode/launch.json
+tempCodeRunnerFile.cpp
