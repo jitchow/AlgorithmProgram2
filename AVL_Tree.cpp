@@ -63,13 +63,11 @@ class AVL_Tree {
 
     Node* balance(Node* parent) {
         int parentBF = getBalanceFactor(parent);
-        int leftBF = getBalanceFactor(parent->left);
-        int rightBF = getBalanceFactor(parent->right);
 
         //Left-heavy unbalanced tree
         if (parentBF > 1) {
             //Left child node is left-heavy
-            if(leftBF > 0) {
+            if(getBalanceFactor(parent->left) > 0) {
                 parent = LL_Rotation(parent);
             }
             //Left child node is right-heavy
@@ -80,7 +78,7 @@ class AVL_Tree {
         //Right-heavy unbalanced tree
         else if (parentBF < -1) {
             //Left child node is left-heavy
-            if(rightBF > 0) {
+            if(getBalanceFactor(parent->right) > 0) {
                 parent = RL_Rotation(parent);
             }
             else {
