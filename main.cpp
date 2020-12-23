@@ -35,14 +35,11 @@ int main () {
 
 <<<<<<< HEAD
     AVL_Tree tree;
-
-    //Start timer
-    //auto start = high_resolution_clock::now();
-
+    auto start = high_resolution_clock::now(); 
     for (int i=0; i<data.size(); i++) {
-        cout << data[i] << endl;
         tree.insert(data[i]);
     }
+<<<<<<< HEAD
     //Stop timer
     //auto stop = high_resolution_clock::now(); 
 
@@ -51,5 +48,11 @@ int main () {
 
 =======
 >>>>>>> parent of 2a491a3... Done inser function (i think)
+=======
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start); 
+    cout << duration.count() << " microseconds" << endl;
+    
+>>>>>>> parent of b57225f... error avl tree
     return 0;
 }

@@ -10,125 +10,38 @@ class AVL_Tree {
     };
 
     Node* root;
+    int sum = 0;
     public:
         AVL_Tree() {
             root = NULL;
         }
 
         ~AVL_Tree() {
-            delete root;
-            root = NULL;
+            cout << root->data << " is data" << endl;
+            cout << root->left->data << " is left" << endl;
+            cout << root->right->data << " is right" << endl;
+            
         }
 
         void insert(string data) {
             root = insert(root, data);
         }
 
-        void search(string data) {
-            root = search(root, data);
-        }
-
     //Functions start here
-    Node* search(Node* parent, string data) {
-        if(parent == NULL || parent->data == data) {
-            return parent;
+    Node* insert(Node* root, string data) {
+        if(root == NULL) {
+            root = new Node;
+            root->data = data;
+            root->left = NULL;
+            root->right = NULL;
         }
-        
-        if((data.compare(parent->data)) < 0) {
-            return search(parent->left, data);
+        else if ((data.compare(root->data)) < 0) {
+            root->left = insert(root->left, data);
         }
-        else if ((data.compare(parent->data)) > 0) {
-            return search(parent->right, data);
+        else if ((data.compare(root->data)) > 0) {
+            root->right = insert(root->right, data);
         }
-        return parent;
+        return root;
     }
-
-    Node* insert(Node* parent, string data) {
-        if(parent == NULL) {
-            parent = new Node;
-            parent->data = data;
-            parent->left = NULL;
-            parent->right = NULL;
-        }
-        else if ((data.compare(parent->data)) < 0) {
-            parent->left = insert(parent->left, data);
-            parent = balance(parent);
-        }
-        else if ((data.compare(parent->data)) > 0) {
-            parent->right = insert(parent->right, data);
-            parent = balance(parent);
-        }
-        return parent;
-    }
-
-    Node* balance(Node* parent) {
-        int parentBF = getBalanceFactor(parent);
-        int leftBF = getBalanceFactor(parent->left);
-        int rightBF = getBalanceFactor(parent->right);
-
-        //Left-heavy unbalanced tree
-        if (parentBF > 1) {
-            //Left child node is left-heavy
-            if(leftBF > 0) {
-                parent = LL_Rotation(parent);
-            }
-            //Left child node is right-heavy
-            else {
-                parent = LR_Rotation(parent);
-            }
-        }
-        //Right-heavy unbalanced tree
-        else if (parentBF < -1) {
-            //Left child node is left-heavy
-            if(rightBF > 0) {
-                parent = RL_Rotation(parent);
-            }
-            else {
-                parent = RR_Rotation(parent);
-            }
-        }
-        return parent;
-    }
-
-    int getHeight(Node* parent) {
-        int h = 0;
-        if (parent == NULL) {
-            return -1;
-        }
-        //Recursively increment everytime there is child
-        //and add height of child with tallest height
-        h = 1 + max(getHeight(parent->left), getHeight(parent->right));
-        return h;
-    }
-
-    int getBalanceFactor(Node* parent) {
-        return (getHeight(parent->left) - getHeight(parent->right));
-    }
-
-    Node* LL_Rotation(Node* parent) {
-        Node* temp = parent->left;
-        parent->left = temp->right;
-        temp->right = parent;
-        return temp;
-    }
-
-    Node* RR_Rotation(Node* parent) {
-        Node* temp = parent->right;
-        parent->right = temp->left;
-        temp->left = parent;
-        return temp;
-    }
-
-    Node* LR_Rotation(Node* parent) {
-        Node* temp = parent->left;
-        parent->left = RR_Rotation(temp);
-        return LL_Rotation(parent);
-    }
-
-    Node* RL_Rotation(Node* parent) {
-        Node* temp = parent->right;
-        parent->right = LL_Rotation(temp);
-        return RR_Rotation(parent);
-    }
-
 };
+
