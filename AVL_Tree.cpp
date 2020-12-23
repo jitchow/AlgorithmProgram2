@@ -24,8 +24,12 @@ class AVL_Tree {
             root = insert(root, data);
         }
 
-        void search(string data) {
-            root = search(root, data);
+        string search(string data) {
+            Node* found = search(root, data);
+            if(found != NULL) {
+                return (found->data) + " was found";
+            }
+            return data + " was not found";
         }
 
     //Functions start here
@@ -52,11 +56,11 @@ class AVL_Tree {
         }
         else if ((data.compare(parent->data)) < 0) {
             parent->left = insert(parent->left, data);
-            //parent = balance(parent);
+            parent = balance(parent);
         }
         else if ((data.compare(parent->data)) > 0) {
             parent->right = insert(parent->right, data);
-            //parent = balance(parent);
+            parent = balance(parent);
         }
         return parent;
     }

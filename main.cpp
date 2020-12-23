@@ -31,26 +31,39 @@ vector<string> getData(string textFile) {
 int main () {
 
 	string filename;
-    cout << "Please enter a file name: ";
+    string searchfile;
+    vector<string> data, search; 
+
+    cout << "Enter a file name: ";
     cin >> filename;
-    vector<string> data = getData(filename);
+    data = getData(filename);
 
     AVL_Tree tree;
 
     //Start timer
-    auto start = high_resolution_clock::now();
-    int count = 0;
+    auto insertStart = high_resolution_clock::now();
     for (int i=0; i<data.size(); i++) {
-        count++;
         tree.insert(data[i]);
     }
     //Stop timer
-    auto stop = high_resolution_clock::now(); 
+    auto insertStop = high_resolution_clock::now(); 
+    auto insertDuration = duration_cast<microseconds>(insertStop - insertStart);
 
-    auto insertDuration = duration_cast<microseconds>(stop - start);
-
-    cout << count << endl;
     cout << "AVL Tree insertion took " << insertDuration.count() << " microseconds" << endl;
+    cout << endl;
+
+    cout << "Enter file to search: ";
+    cin >> searchfile;
+    search = getData(searchfile);
+
+    auto searchStart = high_resolution_clock::now();
+    for(int i=0; i<search.size(); i++) {
+        cout << tree.search(search[i]) << endl;
+    }
+    auto searchStop = high_resolution_clock::now(); 
+    auto searchDuration = duration_cast<microseconds>(searchStop - searchStart);
+
+    cout << "AVL Tree search took " << searchDuration.count() << " microseconds" << endl;
 
     return 0;
 }
