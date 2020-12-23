@@ -1,10 +1,8 @@
 #include<iostream>
 #include <fstream>
 #include <vector>
-#include <chrono> 
-#include "AVL_Tree.cpp"
+#include <sstream>
 using namespace std;
-using namespace std::chrono; 
 
 vector<string> getData(string textFile) {
     vector<string> data;
@@ -28,13 +26,14 @@ vector<string> getData(string textFile) {
     return data;
 }
 
+
+
 int main () {
+    vector<string> data = getData("Set_A.txt");
 
-	string filename;
-    cout << "Please enter a file name: ";
-    cin >> filename;
-    vector<string> data = getData(filename);
 
+
+<<<<<<< HEAD
     AVL_Tree tree;
 
     //Start timer
@@ -50,5 +49,7 @@ int main () {
     //auto insertDuration = duration_cast<microseconds>(stop - start);
     //cout << "AVL Tree insertion took " << insertDuration.count() << " microseconds" << endl;
 
+=======
+>>>>>>> parent of 2a491a3... Done inser function (i think)
     return 0;
 }

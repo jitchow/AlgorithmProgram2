@@ -5,8 +5,11 @@
 .project
 .settings/language.settings.xml
 .settings/org.eclipse.cdt.managedbuilder.core.prefs
+<<<<<<< HEAD
 .vscode/settings.json
 .vscode/tasks.json
 obj/Debug/main.o
 .vscode/launch.json
 tempCodeRunnerFile.cpp
+=======
+>>>>>>> parent of 2a491a3... Done inser function (i think)
