@@ -52,11 +52,11 @@ class AVL_Tree {
         }
         else if ((data.compare(parent->data)) < 0) {
             parent->left = insert(parent->left, data);
-            parent = balance(parent);
+            //parent = balance(parent);
         }
         else if ((data.compare(parent->data)) > 0) {
             parent->right = insert(parent->right, data);
-            parent = balance(parent);
+            //parent = balance(parent);
         }
         return parent;
     }
