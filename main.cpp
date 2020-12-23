@@ -1,8 +1,10 @@
 #include<iostream>
 #include <fstream>
 #include <vector>
-#include <sstream>
+#include <chrono> 
+#include "AVL_Tree.cpp"
 using namespace std;
+using namespace std::chrono; 
 
 vector<string> getData(string textFile) {
     vector<string> data;
@@ -26,33 +28,27 @@ vector<string> getData(string textFile) {
     return data;
 }
 
-
-
 int main () {
-    vector<string> data = getData("Set_A.txt");
 
+	string filename;
+    cout << "Please enter a file name: ";
+    cin >> filename;
+    vector<string> data = getData(filename);
 
-
-<<<<<<< HEAD
     AVL_Tree tree;
-    auto start = high_resolution_clock::now(); 
+
+    //Start timer
+    //auto start = high_resolution_clock::now();
+
     for (int i=0; i<data.size(); i++) {
+        cout << data[i] << endl;
         tree.insert(data[i]);
     }
-<<<<<<< HEAD
     //Stop timer
     //auto stop = high_resolution_clock::now(); 
 
     //auto insertDuration = duration_cast<microseconds>(stop - start);
     //cout << "AVL Tree insertion took " << insertDuration.count() << " microseconds" << endl;
 
-=======
->>>>>>> parent of 2a491a3... Done inser function (i think)
-=======
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start); 
-    cout << duration.count() << " microseconds" << endl;
-    
->>>>>>> parent of b57225f... error avl tree
     return 0;
 }
