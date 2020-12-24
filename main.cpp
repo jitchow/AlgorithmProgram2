@@ -49,7 +49,7 @@ int main () {
     auto insertStop = high_resolution_clock::now(); 
     auto insertDuration = duration_cast<microseconds>(insertStop - insertStart);
 
-    cout << "AVL Tree insertion took " << insertDuration.count() << " microseconds" << endl;
+    cout << "AVL Tree insertion took " << insertDuration.count() << " ms" << endl;
     cout << endl;
 
     cout << "Enter file to search: ";
@@ -63,7 +63,8 @@ int main () {
     auto searchStop = high_resolution_clock::now(); 
     auto searchDuration = duration_cast<microseconds>(searchStop - searchStart);
 
-    cout << "AVL Tree search took " << searchDuration.count() << " microseconds" << endl;
+    cout << "AVL Tree search took " << searchDuration.count() << " ms" << endl;
+    cout << endl;
 
     return 0;
 }

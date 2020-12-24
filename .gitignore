@@ -10,3 +10,4 @@
 obj/Debug/main.o
 .vscode/launch.json
 tempCodeRunnerFile.cpp
+Node.cpp
